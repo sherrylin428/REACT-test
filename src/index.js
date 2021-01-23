@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Style/index.css';
-import Weatheritem from './Weatheritem/Weatheritem';
+import './Style/home.css';
+import Searchinput from './Item/searchInput';
 
 ReactDOM.render(
- 
-    <Weatheritem/>,
-  document.getElementById("root")
+    <Searchinput/>,document.getElementById("root")
 );
