@@ -1,11 +1,12 @@
 import React from 'react'
-import { store } from './redux/store'
 import axios from 'axios'
-import './Weather.css'
-import SearchList from './autocomponent'
-import ListShow from './Component/weather'
+import { store } from '../Redux/store'
+import Header from '../Components/TopHeader'
+import SearchList from '../autoComponent'
+import WeatherListShow from '../Components/WeatherList/WeatherList'
+import './item.css';
 
-class Weatheritem extends React.Component {
+class Searchinput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,17 +39,19 @@ class Weatheritem extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input
+            <div className="item">
+                <Header />
+                <div className="search-input">
+                <input 
                     list={this.state.listID}
                     placeholder={this.state.placeHolder}
                     onInput={this.eventInput}
                     onKeyDown={this.eventKeyDown}
                     value={this.state.inputValue}
-                />
+                /></div>
                 <SearchList id={this.state.listID} value={this.state.inputValue} />
-                <ListShow show={store.getState()}/>
+                <WeatherListShow show={store.getState()}/>
             </div>);
     }
 }
-export default Weatheritem
+export default Searchinput
